@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Controller</title>
+  <style>
+    body { font-family: sans-serif; text-align: center; margin-top: 50px; }
+    button { font-size: 1.4em; padding: 10px 25px; }
+  </style>
+</head>
+<body>
+
+<h2>Controller</h2>
+<button onclick="wake()">Wake Up</button>
+
+<script>
+  const password = prompt("Enter password:");
+  if (password !== "passwordcontroller69") {
+    document.body.innerHTML = "Access denied.";
+    throw new Error("Incorrect password");
+  }
+
+  function wake() {
+    fetch("http://your.ddns.net/wake")
+      .then(res => res.text())
+      .then(msg => alert("Success: " + msg))
+      .catch(err => alert("Error: " + err));
+  }
+</script>
+
+</body>
+</html>
